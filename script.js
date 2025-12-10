@@ -15,11 +15,11 @@ function renderAllCountries(countries) {
         const countryDiv = document.createElement('div');
         countryDiv.className = 'country';
         countryDiv.innerHTML = `
-            <h2>${country.name.official}</h2>
-            <p>Common Name: ${country.name.common}</p>
-            <p>Capital: ${country.capital}</p>
+            <h2>${country.flag} ${country.name.common}</h2>
+            <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
             <p>Region: ${country.region}</p>
-            <p>Population: ${country.population}</p>
+            <p>Area: ${country.area} km²</p>
+            <p>Population: ${country.population.toLocaleString()}</p>
         `;
         container.appendChild(countryDiv);
     });
