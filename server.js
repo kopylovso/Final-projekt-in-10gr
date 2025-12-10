@@ -6,7 +6,6 @@ const server = http.createServer((req, res) => {
   let filePath = req.url === '/' ? './index.html' : `.${req.url}`;
   const ext = path.extname(filePath);
 
-  // типы файлов для браузера
   const contentTypes = {
     '.html': 'text/html',
     '.css': 'text/css',

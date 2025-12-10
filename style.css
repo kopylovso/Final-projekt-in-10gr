@@ -31,4 +31,7 @@ h1{
   background: #e8e8e8;               
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
-
+#filter-section {
+    display: flex;
+    justify-content: center;
+}
