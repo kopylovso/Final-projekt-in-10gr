@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Country catalog</h1>
-
+    <button id="theme-toggle" style="margin-bottom: 20px;">Toggle theme</button>
     <section id="filter-section">   
         <input 
             type="text" 
@@ -29,7 +29,23 @@
         </select>
         </div>
     </section>
-    <hr>
+
+    <section id="big-pupulation-filter" margin-bottom="20px">
+        <div>
+            <div id="population-filter">
+                <label>
+                    Population more than:
+                    <input type="number" id="min-population" placeholder="0">
+                </label>
+                <label>
+                    Population less than:
+                    <input type="number" id="max-population" placeholder="1000000000">
+                </label>
+                <button id="filter-btn">Apply filter</button>
+            </div>
+            <div id="countries-container"></div>
+        </div>
+    </section>
     <div id="countries-container"></div>
     <script src="script.js"></script>
 </body>

@@ -46,3 +46,19 @@ function renderAllCountries(list) {
         container.appendChild(countryDiv);
     });
 }
+
+const themeBtn = document.getElementById("theme-toggle");
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+function filterCountriesByPopulation() {
+  const min = parseInt(document.getElementById('min-population').value) || 0;
+  const max = parseInt(document.getElementById('max-population').value) || Infinity;
+
+  const filtered = countries.filter(country => {
+    return country.population >= min && country.population <= max;
+  });
+
+  renderAllCountries(filtered);
+}
+document.getElementById('filter-btn').addEventListener('click', filterCountriesByPopulation);
