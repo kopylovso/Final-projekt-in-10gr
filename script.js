@@ -1,17 +1,39 @@
 let countries = [];
 
 async function init() {
-  const res = await fetch('./countries.json');
-  countries = await res.json();
+    const res = await fetch('./countries.json');
+    countries = await res.json();
 
-  renderAllCountries(countries);
+    renderAllCountries(countries); 
 }
 
 init();
-function renderAllCountries(countries) {
-  const container = document.getElementById('countries-container');
-  container.innerHTML = '';
-    countries.forEach((country) => {
+
+const select = document.getElementById("country");
+select.addEventListener("change", () => {
+    const region = select.value;
+    if (region === "All") {
+        renderAllCountries(countries);
+        return;
+    }
+    const filtered = countries.filter(country => country.region === region);
+    renderAllCountries(filtered);
+});
+
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", () => {
+    const value = searchInput.value.toLowerCase().trim();
+    const filtered = countries.filter(country =>
+        country.name.common.toLowerCase().includes(value)
+    );
+    renderAllCountries(filtered);
+});
+
+
+function renderAllCountries(list) {
+    const container = document.getElementById('countries-container');
+    container.innerHTML = '';
+    list.forEach((country) => {
         const countryDiv = document.createElement('div');
         countryDiv.className = 'country';
         countryDiv.innerHTML = `

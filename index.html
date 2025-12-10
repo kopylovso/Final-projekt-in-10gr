@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог стран</title>
+    <title>Country catalog</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Каталог стран</h1>
+    <h1>Country catalog</h1>
+
     <section id="filter-section">   
-        <label for="country">Country region:</label>
-        <select id="region-select" name="country">
-            <option>Select the region of the country:</option>
+        <input 
+            type="text" 
+            id="search" 
+            placeholder="Search country..."
+            style="padding: 8px; width: 250px; margin-bottom: 20px;"
+        >
+        
+        <div><label for="country">Country region:</label>
+        <select id="country" name="country">
+            <option>All</option>
             <option value="Europe">Europe</option>
             <option value="Asia">Asia</option>
             <option value="Americas">Americas</option>
@@ -19,7 +27,7 @@
             <option value="Africa">Africa</option>
             <option value="Antarctic">Antarctic</option>
         </select>
-
+        </div>
     </section>
     <hr>
     <div id="countries-container"></div>

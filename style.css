@@ -33,5 +33,5 @@ h1{
 }
 #filter-section {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
