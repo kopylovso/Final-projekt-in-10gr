@@ -8,5 +8,8 @@
   "main": "code15.11.25.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
   }
 }

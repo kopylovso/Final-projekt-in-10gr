@@ -41,11 +41,27 @@
                     Population less than:
                     <input type="number" id="max-population" placeholder="1000000000">
                 </label>
-                <button id="filter-btn">Apply filter</button>
+                <button id="filter-btn-population">Apply filter</button>
             </div>
-            <div id="countries-container"></div>
         </div>
     </section>
+
+    <div id="controls">
+  <div id="area-filter">
+    <label>
+        Area more than:
+      <input type="number" id="min-area" placeholder="0">
+    </label>
+
+    <label>
+        Area less than:
+      <input type="number" id="max-area" placeholder="1000000000">
+    </label>
+
+    <button id="filter-area-btn">Apply filter</button>
+  </div>
+</div>
+
     <div id="countries-container"></div>
     <script src="script.js"></script>
 </body>

@@ -1,3 +1,6 @@
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
 let countries = [];
 
 async function init() {
@@ -37,7 +40,10 @@ function renderAllCountries(list) {
         const countryDiv = document.createElement('div');
         countryDiv.className = 'country';
         countryDiv.innerHTML = `
-            <h2>${country.flag} ${country.name.common}</h2>
+            <h2> 
+            <img src="https://flagcdn.com/16x12/${country.cca2.toLowerCase()}.png"> 
+            ${country.name.common}
+            </h2>
             <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
             <p>Region: ${country.region}</p>
             <p>Area: ${country.area} km²</p>
@@ -61,4 +67,16 @@ function filterCountriesByPopulation() {
 
   renderAllCountries(filtered);
 }
-document.getElementById('filter-btn').addEventListener('click', filterCountriesByPopulation);
+document.getElementById('filter-btn-population').addEventListener('click', filterCountriesByPopulation);
+
+
+function filterCountriesByArea() {
+  const min = parseInt(document.getElementById('min-area').value) || 0;
+  const max = parseInt(document.getElementById('max-area').value) || Infinity;
+  const filtered = countries.filter(country => {
+    return country.area >= min && country.area <= max;
+  });
+  renderAllCountries(filtered);
+}
+document.getElementById('filter-area-btn').addEventListener('click', filterCountriesByArea);
+
