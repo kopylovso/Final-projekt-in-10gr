@@ -1,12 +1,8 @@
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-
 let countries = [];
 
 async function init() {
     const res = await fetch('./countries.json');
     countries = await res.json();
-
     renderAllCountries(countries); 
 }
 
