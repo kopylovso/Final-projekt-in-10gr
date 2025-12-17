@@ -5,7 +5,6 @@ async function init() {
     countries = await res.json();
     renderAllCountries(countries); 
 }
-
 init();
 
 const select = document.getElementById("country");
@@ -45,6 +44,9 @@ function renderAllCountries(list) {
             <p>Area: ${country.area} km²</p>
             <p>Population: ${country.population.toLocaleString()}</p>
         `;
+        countryDiv.addEventListener('click', () => {
+            window.location.href = `country.html?code=${country.cca2}`;
+        });
         container.appendChild(countryDiv);
     });
 }
