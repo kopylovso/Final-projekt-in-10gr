@@ -2,7 +2,6 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// 🔹 читаем JSON ОДИН раз при запуске сервера
 const countriesData = JSON.parse(
   fs.readFileSync('./countries.json', 'utf-8')
 );
@@ -11,9 +10,6 @@ const server = http.createServer((req, res) => {
 
   const url = req.url.split('?')[0];
 
-  /* =======================
-     🔹 API: /countries
-     ======================= */
   if (url === '/countries' && req.method === 'GET') {
     const result = countriesData.map(c => ({
       name: c.name.common,
@@ -28,9 +24,6 @@ const server = http.createServer((req, res) => {
     return res.end(JSON.stringify(result));
   }
 
-  /* =======================
-     🔹 API: /countries/{code}
-     ======================= */
   if (url.startsWith('/countries/') && req.method === 'GET') {
     const code = url.split('/')[2]?.toUpperCase();
 
@@ -47,9 +40,6 @@ const server = http.createServer((req, res) => {
     return res.end(JSON.stringify(country));
   }
 
-  /* =======================
-     🔹 СТАТИЧЕСКИЕ ФАЙЛЫ
-     ======================= */
   let filePath = url === '/'
     ? './index.html'
     : `.${url}`;
